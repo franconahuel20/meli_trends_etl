@@ -18,6 +18,7 @@ from airflow.operators.bash import BashOperator
 from sqlalchemy import create_engine, text
 from thefuzz import process, fuzz
 from unidecode import unidecode
+from collections import defaultdict
 
 # ================= CONFIG =================
 LOCAL_TZ = pendulum.timezone("America/Argentina/Buenos_Aires")
@@ -345,109 +346,132 @@ def transform_l1_to_l2(**context):
     context["ti"].xcom_push(key="l2_key",value=l2_key)
 
 def fuzzy_match_l2_to_l3(**context):
-    from collections import defaultdict
+    """
+    Performs fuzzy matching between scraped keywords and master data (brands/characters).
+    Categorizes results as 'Branded' or 'Unbranded' and populates franchise metadata.
+    """
 
-    # ================= LOAD L2 =================
+    # ================= LOAD L2 DATA FROM S3 =================
+    # Pull the S3 key from the previous task in the DAG
     key = context["ti"].xcom_pull(task_ids="transform_l1_to_l2", key="l2_key")
     obj = s3_client().get_object(Bucket=MINIO_BUCKET, Key=key)
     df = pd.read_parquet(BytesIO(obj["Body"].read()))
 
     conn = get_pg_conn()
 
-    # ================= LOAD MASTER DATA =================
-    df_char = pd.read_sql(f"""
-        SELECT *
-        FROM {STANDARDIZATION_SCHEMA}.characters
-        WHERE character_str IS NOT NULL
-    """, conn)
-
-    df_brand = pd.read_sql(f"""
-        SELECT *
-        FROM {STANDARDIZATION_SCHEMA}.brands
-        WHERE brand_str IS NOT NULL
-    """, conn)
-
+    # ================= LOAD MASTER DATA FROM POSTGRES =================
+    # Fetch standardized lists for characters and brands
+    df_char = pd.read_sql(f"SELECT * FROM {STANDARDIZATION_SCHEMA}.characters", conn)
+    df_brand = pd.read_sql(f"SELECT * FROM {STANDARDIZATION_SCHEMA}.brands", conn)
     conn.close()
 
-    # ================= NORMALIZATION =================
-    df["keyword_clean"] = df["keyword_str"].apply(normalize_text)
-
+    # Pre-process master data for matching
     df_char["character_clean"] = df_char["character_str"].apply(normalize_text)
     df_brand["brand_clean"] = df_brand["brand_str"].apply(normalize_text)
 
-    characters = df_char["character_clean"].tolist()
-    brands = df_brand["brand_clean"].tolist()
+    # Generate unique lists for fuzzy processing
+    char_list = df_char[df_char["character_clean"] != ""]["character_clean"].unique().tolist()
+    brand_list = df_brand[df_brand["brand_clean"] != ""]["brand_clean"].unique().tolist()
 
-    # ================= MATCHING =================
-    results = defaultdict(list)
+    final_rows = []
 
-    for kw in df["keyword_clean"]:
+    # ================= ITERATIVE MATCHING PROCESS =================
+    for _, row in df.iterrows():
+        kw_original = str(row["keyword_str"])
+        kw_clean = normalize_text(kw_original)
+        
+        best_char_row = None
+        best_brand_row = None
+        
+        # --- 1. CHARACTER / FRANCHISE MATCHING ---
+        # Step A: Exact substring match (high precision)
+        # Prevents false negatives when a character name is part of a longer string
+        match_found = False
+        for _, c_row in df_char.iterrows():
+            if c_row["character_clean"] in kw_clean and len(c_row["character_clean"]) > 3:
+                best_char_row = c_row
+                match_found = True
+                break
+        
+        # Step B: Fuzzy match (high recall)
+        # Used if exact match fails, with a strict threshold (85) to avoid false positives
+        if not match_found:
+            res = process.extractOne(kw_clean, char_list, scorer=fuzz.token_set_ratio)
+            if res and res[1] >= 85: 
+                best_char_row = df_char[df_char["character_clean"] == res[0]].iloc[0]
 
-        best_char = None
-        best_brand = None
+        # --- 2. BRAND MATCHING ---
+        # Uses token_set_ratio to find brands within keywords (threshold 90)
+        res_b = process.extractOne(kw_clean, brand_list, scorer=fuzz.token_set_ratio)
+        if res_b and res_b[1] >= 90:
+            best_brand_row = df_brand[df_brand["brand_clean"] == res_b[0]].iloc[0]
 
-        # CHARACTER MATCH
-        char_match = process.extractOne(kw, characters, scorer=fuzz.token_set_ratio)
+        # --- 3. CONSTRUCTING THE FINAL RECORD ---
+        new_row = row.to_dict()
+        
+        # Map Character & Franchise metadata
+        new_row["character_str"] = best_char_row["character_str"] if best_char_row is not None else None
+        new_row["franchise_n1_str"] = best_char_row["franchise_n1_str"] if best_char_row is not None else None
+        new_row["franchise_n2_str"] = best_char_row["franchise_n2_str"] if best_char_row is not None else None
+        new_row["franchise_n3_str"] = best_char_row["franchise_n3_str"] if best_char_row is not None else None
+        new_row["content_str"] = best_char_row["content_str"] if best_char_row is not None else None
+        new_row["group_company_owner_rights_str"] = best_char_row["group_company_owner_rights_str"] if best_char_row is not None else "Other"
+        
+        # Check if the character belongs to The Walt Disney Company (TWDC)
+        new_row["twdc_int"] = 1 if (best_char_row is not None and str(best_char_row.get("twdc_int")) == "1") else 0
+        
+        # Map Brand metadata
+        new_row["brand_str"] = best_brand_row["brand_str"] if best_brand_row is not None else None
+        
+        # --- 4. CLASSIFICATION LOGIC (Branded vs Unbranded) ---
+        # Flags for analytical reporting (YES/NO)
+        has_char = "YES" if best_char_row is not None else "NO"
+        has_f1 = "YES" if (best_char_row is not None and best_char_row["franchise_n1_str"]) else "NO"
+        has_brand = "YES" if best_brand_row is not None else "NO"
+        
+        new_row["has_character_str"] = has_char
+        new_row["has_franchise_n1_str"] = has_f1
+        new_row["has_brand_str"] = has_brand
+        
+        # Core classification: If any property is matched, it's 'Branded'
+        new_row["branded_str"] = "Branded" if (has_char == "YES" or has_brand == "YES") else "Unbranded"
 
-        if char_match and char_match[1] >= 75:
-            row = df_char[df_char["character_clean"] == char_match[0]].iloc[0]
-            best_char = row
+        # --- 5. TEXT TRANSFORMATION SIMULATION ---
+        # Stubs for NLP processing (Lemmatization/Stopwords)
+        new_row["keyword_in_spanish_str"] = kw_original
+        new_row["normalized_keyword_es_str"] = kw_clean
+        new_row["nouns_keyword_str"] = kw_clean 
+        
+        final_rows.append(new_row)
 
-        # BRAND MATCH
-        brand_match = process.extractOne(kw, brands, scorer=fuzz.token_set_ratio)
+    # ================= FINAL DATAFRAME ASSEMBLY =================
+    df_final = pd.DataFrame(final_rows)
+    
+    # Metadata for auditing
+    df_final["loading_dtm"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    df_final["file_row_id_int"] = range(1, len(df_final) + 1)
+    
+    # Standardize date columns for partitioning
+    df_final["date_dte"] = pd.to_datetime(df_final["date_dte"])
+    df_final["year_calendar_int"] = df_final["date_dte"].dt.year
+    df_final["month_calendar_int"] = df_final["date_dte"].dt.month
+    df_final["day_calendar_int"] = df_final["date_dte"].dt.day
 
-        if brand_match and brand_match[1] >= 75:
-            row_b = df_brand[df_brand["brand_clean"] == brand_match[0]].iloc[0]
-            best_brand = row_b
-
-        # character fields
-        if best_char is not None:
-            results["character_str"].append(best_char.get("character_str"))
-            results["franchise_n1_str"].append(best_char.get("franchise_n1_str"))
-            results["franchise_n2_str"].append(best_char.get("franchise_n2_str"))
-            results["franchise_n3_str"].append(best_char.get("franchise_n3_str"))
-            results["content_str"].append(best_char.get("content_str"))
-            results["group_company_owner_rights_str"].append(best_char.get("group_company_owner_rights_str"))
-            results["twdc_int"].append(best_char.get("twdc_int"))
-        else:
-            results["character_str"].append(None)
-            results["franchise_n1_str"].append(None)
-            results["franchise_n2_str"].append(None)
-            results["franchise_n3_str"].append(None)
-            results["content_str"].append(None)
-            results["group_company_owner_rights_str"].append(None)
-            results["twdc_int"].append(None)
-
-        # brand fields
-        if best_brand is not None:
-            results["brand_str"].append(best_brand.get("brand_str"))
-        else:
-            results["brand_str"].append(None)
-
-    # ================= MERGE RESULTS =================
-    for col, values in results.items():
-        df[col] = values
-
-    # ================= EXTRA FEATURES =================
-    df["loading_dtm"] = datetime.now()
-    df["file_row_id_int"] = range(1, len(df) + 1)
-
-    df["year_calendar_int"] = pd.to_datetime(df["date_dte"], errors="coerce").dt.year
-    df["month_calendar_int"] = pd.to_datetime(df["date_dte"], errors="coerce").dt.month
-    df["day_calendar_int"] = pd.to_datetime(df["date_dte"], errors="coerce").dt.day
-
-    # ================= SAVE TO POSTGRES =================
+    # ================= SAVE PROCESSED DATA TO POSTGRES (L3) =================
+    # Re-establish connection for data ingestion
     conn = get_pg_conn()
     cur = conn.cursor()
 
     cur.execute(f"CREATE SCHEMA IF NOT EXISTS {FINAL_STG_SCHEMA}")
     cur.execute(f"DROP TABLE IF EXISTS {FINAL_STG_SCHEMA}.{FINAL_STG_TABLE}")
 
-    cols_sql = ", ".join([f"{c} TEXT" for c in df.columns])
+    # Define schema dynamically based on DataFrame columns
+    cols_sql = ", ".join([f"{c} TEXT" for c in df_final.columns])
     cur.execute(f"CREATE TABLE {FINAL_STG_SCHEMA}.{FINAL_STG_TABLE} ({cols_sql})")
 
+    # Efficient bulk load using COPY command
     buffer = StringIO()
-    df.to_csv(buffer, index=False, header=False)
+    df_final.to_csv(buffer, index=False, header=False)
     buffer.seek(0)
 
     cur.copy_expert(f"COPY {FINAL_STG_SCHEMA}.{FINAL_STG_TABLE} FROM STDIN WITH CSV", buffer)
