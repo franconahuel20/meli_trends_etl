@@ -114,7 +114,7 @@ When all services are ready:
 
 | Service | URL | Credentials |
 |---|---|---|
-| Airflow | http://localhost:8080 | admin / admin |
+| Airflow | http://localhost:8081 | admin / admin |
 | Superset | http://localhost:8088 | admin / admin |
 | MinIO Console | http://localhost:9001 | minioadmin / minioadmin |
 | PostgreSQL | localhost:5432 | postgres / postgres |
