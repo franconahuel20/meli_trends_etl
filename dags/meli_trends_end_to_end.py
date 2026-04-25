@@ -5,7 +5,7 @@ import csv
 import time
 from io import StringIO, BytesIO
 from datetime import datetime, date
-
+import logging
 import boto3
 import numpy as np
 import pandas as pd
@@ -135,7 +135,6 @@ def load_excel_inputs_to_postgres():
 
         print("COLUMNAS NORMALIZADAS:", df.columns.tolist())
 
-        # 🔥 FIX DEFINITIVO: mapear SOLO columnas existentes
         df_renamed = {}
 
         for original, target in cfg["map"].items():
@@ -211,7 +210,6 @@ def read_subcategory_parameters():
     return df
 
 def extract_meli_trends_to_l1(**context):
-    import logging
 
     logger = logging.getLogger("airflow.task")
 

@@ -16,11 +16,8 @@ final AS (
         CAST(country_str AS VARCHAR(200)) AS country_str,
         CAST(category_str AS VARCHAR(200)) AS category_str,
         CAST(subcategory_str AS VARCHAR(200)) AS subcategory_str,
-
-        -- 🔥 columnas faltantes → default
         CURRENT_TIMESTAMP AS loading_dtm,
         ROW_NUMBER() OVER () AS file_row_id_int,
-
         CAST(NULL AS VARCHAR(200)) AS brand_str,
         CAST(NULL AS VARCHAR(200)) AS character_str,
         CAST(NULL AS VARCHAR(200)) AS second_brand_str,
