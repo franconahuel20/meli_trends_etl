@@ -1,0 +1,11 @@
+name: 'meli_trends_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'meli_trends_analytics'
+
+model-paths: ['models']
+
+models:
+  meli_trends_analytics:
+    +materialized: table

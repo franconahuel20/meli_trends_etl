@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: trends
+    description: "Final analytical table with Mercado Libre trends enriched with brand, character and franchise matching."
+    columns:
+      - name: keyword_str
+        tests: [not_null]
+      - name: date_dte
+        tests: [not_null]
+      - name: country_str
+        tests: [not_null]
+      - name: branded_str
+        tests:
+          - accepted_values:
+              values: ['Branded', 'Unbranded']
