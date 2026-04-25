@@ -126,13 +126,13 @@ def load_excel_inputs_to_postgres():
         df = pd.read_excel(path)
 
         # 🔍 DEBUG
-        print(f"\n📂 Procesando archivo: {file}")
-        print("📊 COLUMNAS ORIGINALES:", df.columns.tolist())
+        print(f"\nProcesando archivo: {file}")
+        print("COLUMNAS ORIGINALES:", df.columns.tolist())
 
         # normalizar columnas
         df.columns = [normalize_text(str(c)) for c in df.columns]
 
-        print("📊 COLUMNAS NORMALIZADAS:", df.columns.tolist())
+        print("COLUMNAS NORMALIZADAS:", df.columns.tolist())
 
         # 🔥 FIX DEFINITIVO: mapear SOLO columnas existentes
         df_renamed = {}
@@ -143,11 +143,11 @@ def load_excel_inputs_to_postgres():
 
         df = pd.DataFrame(df_renamed)
 
-        print("📊 COLUMNAS FINALES:", df.columns.tolist())
-        print("📊 FILAS:", len(df))
+        print("COLUMNAS FINALES:", df.columns.tolist())
+        print("FILAS:", len(df))
 
         if df.empty:
-            raise ValueError(f"❌ El archivo {file} no tiene datos válidos después del mapping")
+            raise ValueError(f"El archivo {file} no tiene datos válidos después del mapping")
 
         table = f"{STANDARDIZATION_SCHEMA}.{cfg['table']}"
 
@@ -166,7 +166,7 @@ def load_excel_inputs_to_postgres():
 
         conn.commit()
 
-        print(f"✅ {file} cargado correctamente")
+        print(f"{file} cargado correctamente")
 
     cur.close()
     conn.close()
@@ -386,21 +386,19 @@ def fuzzy_match_l2_to_l3(**context):
         best_char = None
         best_brand = None
 
-        # 🔥 CHARACTER MATCH
+        # CHARACTER MATCH
         char_match = process.extractOne(kw, characters, scorer=fuzz.token_set_ratio)
 
         if char_match and char_match[1] >= 75:
             row = df_char[df_char["character_clean"] == char_match[0]].iloc[0]
             best_char = row
 
-        # 🔥 BRAND MATCH (fallback o complemento)
+        # BRAND MATCH
         brand_match = process.extractOne(kw, brands, scorer=fuzz.token_set_ratio)
 
         if brand_match and brand_match[1] >= 75:
             row_b = df_brand[df_brand["brand_clean"] == brand_match[0]].iloc[0]
             best_brand = row_b
-
-        # ================= BUILD ROW =================
 
         # character fields
         if best_char is not None:
