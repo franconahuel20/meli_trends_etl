@@ -483,7 +483,9 @@ with DAG(
     dag_id="meli_trends_end_to_end",
     schedule="0 23 * * *",
     start_date=datetime(2025,1,1,tzinfo=LOCAL_TZ),
-    catchup=False
+    catchup=False,
+    default_args={"retries": 2},
+    tags=["etl", "meli", "trends"]
 ) as dag:
 
     load_seed_tables = PythonOperator(
