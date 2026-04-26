@@ -251,12 +251,6 @@ The L3 task applies the following logic:
 
 ## 10. dbt model
 
-The dbt model is:
-
-```text
-dbt/models/trends.sql
-```
-
 It creates the final table:
 
 ```sql
