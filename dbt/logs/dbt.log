@@ -2436,3 +2436,553 @@ drop table if exists "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_ba
 [0m17:24:35.403354 [debug] [MainThread]: Command `dbt run` succeeded at 17:24:35.403100 after 59.23 seconds
 [0m17:24:35.404816 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd720519410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd71f15b810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7241d8450>]}
 [0m17:24:35.407794 [debug] [MainThread]: Flushing usage events
+[0m02:33:04.306212 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a24f80f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a24f83e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a24f82510>]}
+
+
+============================== 02:33:04.321312 | 9c8d9d7b-c0a0-4fde-bdcd-9cef7844dace ==============================
+[0m02:33:04.321312 [info ] [MainThread]: Running with dbt=1.8.9
+[0m02:33:04.323624 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/opt/airflow/dbt/logs', 'profiles_dir': '/opt/airflow/dbt/profiles', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt deps', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m02:33:04.656355 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9c8d9d7b-c0a0-4fde-bdcd-9cef7844dace', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a25006510>]}
+[0m02:33:04.710028 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m02:33:04.731455 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m02:33:04.738397 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.55016595, "process_in_blocks": "46720", "process_kernel_time": 1.595211, "process_mem_max_rss": "102160", "process_out_blocks": "0", "process_user_time": 2.500879}
+[0m02:33:04.741875 [debug] [MainThread]: Command `dbt deps` succeeded at 02:33:04.741508 after 0.55 seconds
+[0m02:33:04.745352 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a24fb01d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a2504bf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a28b89c90>]}
+[0m02:33:04.749785 [debug] [MainThread]: Flushing usage events
+[0m02:33:07.746158 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dde2e850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dde0ba10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23ddfd70d0>]}
+
+
+============================== 02:33:07.757312 | 77746430-6c90-4c00-90a3-f0d1543ef063 ==============================
+[0m02:33:07.757312 [info ] [MainThread]: Running with dbt=1.8.9
+[0m02:33:07.759348 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'profiles_dir': '/opt/airflow/dbt/profiles', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m02:33:08.005104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dd59f9d0>]}
+[0m02:33:08.046187 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23df7bbed0>]}
+[0m02:33:08.049929 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m02:33:08.137347 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m02:33:08.147648 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m02:33:08.149651 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dd5dbbd0>]}
+[0m02:33:09.025814 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m02:33:09.028994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dc9952d0>]}
+[0m02:33:09.209444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dc9e2e50>]}
+[0m02:33:09.359486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dc1c5e10>]}
+[0m02:33:09.361932 [info ] [MainThread]: Found 1 model, 4 data tests, 433 macros
+[0m02:33:09.364051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dd550610>]}
+[0m02:33:09.367619 [info ] [MainThread]: 
+[0m02:33:09.369554 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m02:33:09.372547 [debug] [ThreadPool]: Acquiring new postgres connection 'list_snowflake_dev'
+[0m02:33:09.446738 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev"
+[0m02:33:09.449109 [debug] [ThreadPool]: On list_snowflake_dev: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "list_snowflake_dev"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m02:33:09.451029 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:33:09.469293 [debug] [ThreadPool]: SQL status: SELECT 8 in 0.018 seconds
+[0m02:33:09.471897 [debug] [ThreadPool]: On list_snowflake_dev: Close
+[0m02:33:09.474564 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_snowflake_dev, now list_snowflake_dev_mdm_revenue_research_meli)
+[0m02:33:09.480658 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev_mdm_revenue_research_meli"
+[0m02:33:09.483164 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: BEGIN
+[0m02:33:09.485535 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:33:09.494177 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m02:33:09.496173 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev_mdm_revenue_research_meli"
+[0m02:33:09.497762 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "list_snowflake_dev_mdm_revenue_research_meli"} */
+select
+      'snowflake_dev' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'mdm_revenue_research_meli'
+    union all
+    select
+      'snowflake_dev' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'mdm_revenue_research_meli'
+    union all
+    select
+      'snowflake_dev' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'mdm_revenue_research_meli'
+  
+[0m02:33:09.521421 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.022 seconds
+[0m02:33:09.524116 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: ROLLBACK
+[0m02:33:09.526744 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: Close
+[0m02:33:09.532884 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:09.534936 [debug] [MainThread]: On master: BEGIN
+[0m02:33:09.536618 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:33:09.546242 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m02:33:09.548141 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:09.550216 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m02:33:09.564760 [debug] [MainThread]: SQL status: SELECT 0 in 0.012 seconds
+[0m02:33:09.567226 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dde26a50>]}
+[0m02:33:09.568958 [debug] [MainThread]: On master: ROLLBACK
+[0m02:33:09.570842 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:09.572719 [debug] [MainThread]: On master: BEGIN
+[0m02:33:09.575758 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m02:33:09.577827 [debug] [MainThread]: On master: COMMIT
+[0m02:33:09.579468 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:09.580929 [debug] [MainThread]: On master: COMMIT
+[0m02:33:09.582638 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m02:33:09.584303 [debug] [MainThread]: On master: Close
+[0m02:33:09.586302 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m02:33:09.587981 [info ] [MainThread]: 
+[0m02:33:09.599084 [debug] [Thread-1 (]: Began running node model.meli_trends_analytics.trends
+[0m02:33:09.600951 [info ] [Thread-1 (]: 1 of 1 START sql table model mdm_revenue_research_meli.trends .................. [RUN]
+[0m02:33:09.603660 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_snowflake_dev_mdm_revenue_research_meli, now model.meli_trends_analytics.trends)
+[0m02:33:09.605460 [debug] [Thread-1 (]: Began compiling node model.meli_trends_analytics.trends
+[0m02:33:09.613103 [debug] [Thread-1 (]: Writing injected SQL for node "model.meli_trends_analytics.trends"
+[0m02:33:09.647692 [debug] [Thread-1 (]: Began executing node model.meli_trends_analytics.trends
+[0m02:33:09.684541 [debug] [Thread-1 (]: Writing runtime sql for node "model.meli_trends_analytics.trends"
+[0m02:33:09.718279 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:09.719993 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: BEGIN
+[0m02:33:09.721706 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:33:09.728951 [debug] [Thread-1 (]: SQL status: BEGIN in 0.007 seconds
+[0m02:33:09.730597 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:09.732948 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+
+  
+    
+
+  create  table "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM stg_revenue_research_meli.meli_trends_l3
+),
+
+final AS (
+    SELECT
+        CAST(keyword_str AS VARCHAR(1000)) AS keyword_str,
+        CAST(url_str AS VARCHAR(3000)) AS url_str,
+        CAST(date_dte AS DATE) AS date_dte,
+        CAST(country_str AS VARCHAR(200)) AS country_str,
+        CAST(category_str AS VARCHAR(200)) AS category_str,
+        CAST(subcategory_str AS VARCHAR(200)) AS subcategory_str,
+        CURRENT_TIMESTAMP AS loading_dtm,
+        ROW_NUMBER() OVER () AS file_row_id_int,
+        CAST(NULL AS VARCHAR(200)) AS brand_str,
+        CAST(NULL AS VARCHAR(200)) AS character_str,
+        CAST(NULL AS VARCHAR(200)) AS second_brand_str,
+        CAST(NULL AS VARCHAR(500)) AS group_company_owner_rights_str,
+        CAST(NULL AS INTEGER) AS twdc_int,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n1_str,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n2_str,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n3_str,
+        CAST(NULL AS VARCHAR(300)) AS content_str,
+        CAST(NULL AS VARCHAR(1000)) AS keyword_in_spanish_str,
+        CAST(NULL AS DATE) AS week_dte,
+        CAST(NULL AS VARCHAR(1000)) AS normalized_keyword_es_str,
+        CAST(NULL AS VARCHAR(1000)) AS keyword_es_without_stopwords_str,
+        CAST(NULL AS VARCHAR(200)) AS character_without_stopwords_str,
+        CAST(NULL AS VARCHAR(1000)) AS lemmatized_keyword_str,
+        CAST(NULL AS VARCHAR(1000)) AS nouns_keyword_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n2_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n3_str,
+        CAST(NULL AS VARCHAR(5)) AS has_character_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n1_str,
+        CAST(NULL AS VARCHAR(5)) AS has_brand_str,
+        CAST(NULL AS VARCHAR(20)) AS branded_str,
+
+       EXTRACT(YEAR FROM CAST(date_dte AS DATE))::INTEGER AS year_calendar_int,
+       EXTRACT(MONTH FROM CAST(date_dte AS DATE))::INTEGER AS month_calendar_int,
+       EXTRACT(DAY FROM CAST(date_dte AS DATE))::INTEGER AS day_calendar_int
+
+    FROM base
+)
+
+SELECT * FROM final
+  );
+  
+[0m02:33:09.940570 [debug] [Thread-1 (]: SQL status: SELECT 43896 in 0.206 seconds
+[0m02:33:09.951005 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:09.952752 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+alter table "snowflake_dev"."mdm_revenue_research_meli"."trends" rename to "trends__dbt_backup"
+[0m02:33:09.968506 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.013 seconds
+[0m02:33:09.972962 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:09.975546 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+alter table "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_tmp" rename to "trends"
+[0m02:33:09.978494 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m02:33:09.994982 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: COMMIT
+[0m02:33:09.997930 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:10.000541 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: COMMIT
+[0m02:33:10.042212 [debug] [Thread-1 (]: SQL status: COMMIT in 0.039 seconds
+[0m02:33:10.049502 [debug] [Thread-1 (]: Applying DROP to: "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_backup"
+[0m02:33:10.055773 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m02:33:10.058241 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+drop table if exists "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_backup" cascade
+[0m02:33:10.066327 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.006 seconds
+[0m02:33:10.070775 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: Close
+[0m02:33:10.073725 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77746430-6c90-4c00-90a3-f0d1543ef063', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23da12ecd0>]}
+[0m02:33:10.076249 [info ] [Thread-1 (]: 1 of 1 OK created sql table model mdm_revenue_research_meli.trends ............. [[32mSELECT 43896[0m in 0.47s]
+[0m02:33:10.078466 [debug] [Thread-1 (]: Finished running node model.meli_trends_analytics.trends
+[0m02:33:10.082547 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:10.084901 [debug] [MainThread]: On master: BEGIN
+[0m02:33:10.086728 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m02:33:10.094216 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m02:33:10.095987 [debug] [MainThread]: On master: COMMIT
+[0m02:33:10.097401 [debug] [MainThread]: Using postgres connection "master"
+[0m02:33:10.098949 [debug] [MainThread]: On master: COMMIT
+[0m02:33:10.101085 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m02:33:10.103299 [debug] [MainThread]: On master: Close
+[0m02:33:10.105679 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:33:10.107865 [debug] [MainThread]: Connection 'model.meli_trends_analytics.trends' was properly closed.
+[0m02:33:10.109489 [info ] [MainThread]: 
+[0m02:33:10.110843 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.74 seconds (0.74s).
+[0m02:33:10.112317 [debug] [MainThread]: Command end result
+[0m02:33:10.187746 [info ] [MainThread]: 
+[0m02:33:10.189267 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:33:10.190917 [info ] [MainThread]: 
+[0m02:33:10.192617 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m02:33:10.194573 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.5397027, "process_in_blocks": "4968", "process_kernel_time": 0.248161, "process_mem_max_rss": "127680", "process_out_blocks": "0", "process_user_time": 2.977942}
+[0m02:33:10.196468 [debug] [MainThread]: Command `dbt run` succeeded at 02:33:10.196241 after 2.54 seconds
+[0m02:33:10.198226 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23dde2d690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23e1d3e210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f23e1ab0a90>]}
+[0m02:33:10.199773 [debug] [MainThread]: Flushing usage events
+[0m16:05:19.906274 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad0d02d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad0bef90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad0d1390>]}
+
+
+============================== 16:05:19.917953 | 46a00bb6-5f5f-409f-8f75-39bed43ee4e4 ==============================
+[0m16:05:19.917953 [info ] [MainThread]: Running with dbt=1.8.9
+[0m16:05:19.920633 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/airflow/dbt/profiles', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt deps', 'send_anonymous_usage_stats': 'True'}
+[0m16:05:20.392583 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '46a00bb6-5f5f-409f-8f75-39bed43ee4e4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad28bfd0>]}
+[0m16:05:20.458450 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:05:20.478609 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m16:05:20.483226 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.6916871, "process_in_blocks": "9504", "process_kernel_time": 2.410579, "process_mem_max_rss": "105144", "process_out_blocks": "3408", "process_user_time": 2.866903}
+[0m16:05:20.485732 [debug] [MainThread]: Command `dbt deps` succeeded at 16:05:20.485589 after 0.69 seconds
+[0m16:05:20.488194 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad0de590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad092bd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f92ad396110>]}
+[0m16:05:20.490850 [debug] [MainThread]: Flushing usage events
+[0m16:05:24.090529 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e258f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e2173d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e2591d0>]}
+
+
+============================== 16:05:24.101632 | 3e798518-bf56-4a1e-81e7-b3388ed02b50 ==============================
+[0m16:05:24.101632 [info ] [MainThread]: Running with dbt=1.8.9
+[0m16:05:24.103949 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/opt/airflow/dbt/profiles', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:05:24.401161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e25a590>]}
+[0m16:05:24.483689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306fbf44d0>]}
+[0m16:05:24.487132 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m16:05:24.645996 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m16:05:24.654105 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:05:24.657461 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e29dbd0>]}
+[0m16:05:25.950595 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m16:05:25.953820 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e36b5d0>]}
+[0m16:05:26.199556 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306eb90e10>]}
+[0m16:05:26.408366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306c5d65d0>]}
+[0m16:05:26.410734 [info ] [MainThread]: Found 1 model, 4 data tests, 433 macros
+[0m16:05:26.413086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306c5cfb90>]}
+[0m16:05:26.416805 [info ] [MainThread]: 
+[0m16:05:26.419268 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:05:26.423909 [debug] [ThreadPool]: Acquiring new postgres connection 'list_snowflake_dev'
+[0m16:05:26.514523 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev"
+[0m16:05:26.516557 [debug] [ThreadPool]: On list_snowflake_dev: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "list_snowflake_dev"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:05:26.518989 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:05:26.540490 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.021 seconds
+[0m16:05:26.544427 [debug] [ThreadPool]: On list_snowflake_dev: Close
+[0m16:05:26.548338 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_snowflake_dev, now list_snowflake_dev_mdm_revenue_research_meli)
+[0m16:05:26.556390 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev_mdm_revenue_research_meli"
+[0m16:05:26.558446 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: BEGIN
+[0m16:05:26.561193 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:05:26.569887 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m16:05:26.572370 [debug] [ThreadPool]: Using postgres connection "list_snowflake_dev_mdm_revenue_research_meli"
+[0m16:05:26.574142 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "list_snowflake_dev_mdm_revenue_research_meli"} */
+select
+      'snowflake_dev' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'mdm_revenue_research_meli'
+    union all
+    select
+      'snowflake_dev' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'mdm_revenue_research_meli'
+    union all
+    select
+      'snowflake_dev' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'mdm_revenue_research_meli'
+  
+[0m16:05:26.601866 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.025 seconds
+[0m16:05:26.605004 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: ROLLBACK
+[0m16:05:26.608205 [debug] [ThreadPool]: On list_snowflake_dev_mdm_revenue_research_meli: Close
+[0m16:05:26.614954 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:26.617934 [debug] [MainThread]: On master: BEGIN
+[0m16:05:26.620277 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:05:26.628965 [debug] [MainThread]: SQL status: BEGIN in 0.009 seconds
+[0m16:05:26.631241 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:26.633709 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m16:05:26.649453 [debug] [MainThread]: SQL status: SELECT 0 in 0.013 seconds
+[0m16:05:26.653651 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e557390>]}
+[0m16:05:26.656555 [debug] [MainThread]: On master: ROLLBACK
+[0m16:05:26.659602 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:26.661435 [debug] [MainThread]: On master: BEGIN
+[0m16:05:26.663470 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m16:05:26.664994 [debug] [MainThread]: On master: COMMIT
+[0m16:05:26.666783 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:26.669029 [debug] [MainThread]: On master: COMMIT
+[0m16:05:26.671004 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:05:26.672737 [debug] [MainThread]: On master: Close
+[0m16:05:26.675662 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:05:26.677666 [info ] [MainThread]: 
+[0m16:05:26.691043 [debug] [Thread-1 (]: Began running node model.meli_trends_analytics.trends
+[0m16:05:26.693732 [info ] [Thread-1 (]: 1 of 1 START sql table model mdm_revenue_research_meli.trends .................. [RUN]
+[0m16:05:26.695930 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_snowflake_dev_mdm_revenue_research_meli, now model.meli_trends_analytics.trends)
+[0m16:05:26.697877 [debug] [Thread-1 (]: Began compiling node model.meli_trends_analytics.trends
+[0m16:05:26.707637 [debug] [Thread-1 (]: Writing injected SQL for node "model.meli_trends_analytics.trends"
+[0m16:05:26.742035 [debug] [Thread-1 (]: Began executing node model.meli_trends_analytics.trends
+[0m16:05:26.798185 [debug] [Thread-1 (]: Writing runtime sql for node "model.meli_trends_analytics.trends"
+[0m16:05:26.828986 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m16:05:26.831041 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: BEGIN
+[0m16:05:26.833010 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:05:26.841111 [debug] [Thread-1 (]: SQL status: BEGIN in 0.008 seconds
+[0m16:05:26.843569 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m16:05:26.845687 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+
+  
+    
+
+  create  table "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM stg_revenue_research_meli.meli_trends_l3
+),
+
+final AS (
+    SELECT
+        CAST(keyword_str AS VARCHAR(1000)) AS keyword_str,
+        CAST(url_str AS VARCHAR(3000)) AS url_str,
+        CAST(date_dte AS DATE) AS date_dte,
+        CAST(country_str AS VARCHAR(200)) AS country_str,
+        CAST(category_str AS VARCHAR(200)) AS category_str,
+        CAST(subcategory_str AS VARCHAR(200)) AS subcategory_str,
+        CURRENT_TIMESTAMP AS loading_dtm,
+        ROW_NUMBER() OVER () AS file_row_id_int,
+        CAST(NULL AS VARCHAR(200)) AS brand_str,
+        CAST(NULL AS VARCHAR(200)) AS character_str,
+        CAST(NULL AS VARCHAR(200)) AS second_brand_str,
+        CAST(NULL AS VARCHAR(500)) AS group_company_owner_rights_str,
+        CAST(NULL AS INTEGER) AS twdc_int,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n1_str,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n2_str,
+        CAST(NULL AS VARCHAR(200)) AS franchise_n3_str,
+        CAST(NULL AS VARCHAR(300)) AS content_str,
+        CAST(NULL AS VARCHAR(1000)) AS keyword_in_spanish_str,
+        CAST(NULL AS DATE) AS week_dte,
+        CAST(NULL AS VARCHAR(1000)) AS normalized_keyword_es_str,
+        CAST(NULL AS VARCHAR(1000)) AS keyword_es_without_stopwords_str,
+        CAST(NULL AS VARCHAR(200)) AS character_without_stopwords_str,
+        CAST(NULL AS VARCHAR(1000)) AS lemmatized_keyword_str,
+        CAST(NULL AS VARCHAR(1000)) AS nouns_keyword_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n2_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n3_str,
+        CAST(NULL AS VARCHAR(5)) AS has_character_str,
+        CAST(NULL AS VARCHAR(5)) AS has_franchise_n1_str,
+        CAST(NULL AS VARCHAR(5)) AS has_brand_str,
+        CAST(NULL AS VARCHAR(20)) AS branded_str,
+
+       EXTRACT(YEAR FROM CAST(date_dte AS DATE))::INTEGER AS year_calendar_int,
+       EXTRACT(MONTH FROM CAST(date_dte AS DATE))::INTEGER AS month_calendar_int,
+       EXTRACT(DAY FROM CAST(date_dte AS DATE))::INTEGER AS day_calendar_int
+
+    FROM base
+)
+
+SELECT * FROM final
+  );
+  
+[0m16:05:27.044343 [debug] [Thread-1 (]: SQL status: SELECT 43896 in 0.196 seconds
+[0m16:05:27.063409 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m16:05:27.065516 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+alter table "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_tmp" rename to "trends"
+[0m16:05:27.068695 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:05:27.090237 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: COMMIT
+[0m16:05:27.092774 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m16:05:27.094914 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: COMMIT
+[0m16:05:27.108986 [debug] [Thread-1 (]: SQL status: COMMIT in 0.012 seconds
+[0m16:05:27.120303 [debug] [Thread-1 (]: Applying DROP to: "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_backup"
+[0m16:05:27.130520 [debug] [Thread-1 (]: Using postgres connection "model.meli_trends_analytics.trends"
+[0m16:05:27.132796 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "meli_trends_analytics", "target_name": "dev", "node_id": "model.meli_trends_analytics.trends"} */
+drop table if exists "snowflake_dev"."mdm_revenue_research_meli"."trends__dbt_backup" cascade
+[0m16:05:27.136534 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m16:05:27.140843 [debug] [Thread-1 (]: On model.meli_trends_analytics.trends: Close
+[0m16:05:27.145008 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3e798518-bf56-4a1e-81e7-b3388ed02b50', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306a55ff10>]}
+[0m16:05:27.147579 [info ] [Thread-1 (]: 1 of 1 OK created sql table model mdm_revenue_research_meli.trends ............. [[32mSELECT 43896[0m in 0.45s]
+[0m16:05:27.150248 [debug] [Thread-1 (]: Finished running node model.meli_trends_analytics.trends
+[0m16:05:27.154954 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:27.156816 [debug] [MainThread]: On master: BEGIN
+[0m16:05:27.158848 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:05:27.168337 [debug] [MainThread]: SQL status: BEGIN in 0.009 seconds
+[0m16:05:27.170522 [debug] [MainThread]: On master: COMMIT
+[0m16:05:27.172819 [debug] [MainThread]: Using postgres connection "master"
+[0m16:05:27.174738 [debug] [MainThread]: On master: COMMIT
+[0m16:05:27.176839 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:05:27.178689 [debug] [MainThread]: On master: Close
+[0m16:05:27.180875 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:05:27.182746 [debug] [MainThread]: Connection 'model.meli_trends_analytics.trends' was properly closed.
+[0m16:05:27.184566 [info ] [MainThread]: 
+[0m16:05:27.186560 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.77 seconds (0.77s).
+[0m16:05:27.188967 [debug] [MainThread]: Command end result
+[0m16:05:27.269863 [info ] [MainThread]: 
+[0m16:05:27.278587 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:05:27.281247 [info ] [MainThread]: 
+[0m16:05:27.284826 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m16:05:27.287414 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.2910893, "process_in_blocks": "1488", "process_kernel_time": 0.383575, "process_mem_max_rss": "126356", "process_out_blocks": "0", "process_user_time": 4.330365}
+[0m16:05:27.289681 [debug] [MainThread]: Command `dbt run` succeeded at 16:05:27.289481 after 3.29 seconds
+[0m16:05:27.291471 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e2607d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f306e261710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3071e40b50>]}
+[0m16:05:27.293393 [debug] [MainThread]: Flushing usage events
