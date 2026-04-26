@@ -27,7 +27,7 @@ Superset dashboards
 The main final table is:
 
 ```text
-mdm_revenue_research_meli.trends
+stg_revenue_research_meli.meli_trends_l3
 ```
 
 This is the table that Superset should use for the visualizations.
@@ -76,6 +76,11 @@ meli_trends_stack/
 ├── scripts/
 │   └── init_postgres.sql
 ├── docker-compose.yml
+├── superset
+├── LICENSE
+├── tests/
+│   ├── dags/
+│       ├── test_meli_trends_dag.py
 ├── .env.example
 └── README.md
 ```
@@ -94,7 +99,7 @@ Then update the Mercado Libre secret:
 
 ```env
 ML_GRANT_TYPE=client_credentials
-ML_CLIENT_ID=3347009040757312
+ML_CLIENT_ID=your_real_client_id_here
 ML_CLIENT_SECRET=your_real_secret_here
 ```
 
@@ -177,7 +182,7 @@ stg_revenue_research_meli.meli_trends_l3
 ### Final table
 
 ```sql
-mdm_revenue_research_meli.trends
+stg_revenue_research_meli.meli_trends_l3
 ```
 
 ---
@@ -255,16 +260,7 @@ dbt/models/trends.sql
 It creates the final table:
 
 ```sql
-mdm_revenue_research_meli.trends
-```
-
-To run dbt manually inside the Airflow container:
-
-```bash
-docker exec -it meli-airflow-scheduler bash
-cd /opt/airflow/dbt
-dbt run --profiles-dir /opt/airflow/dbt/profiles
-dbt test --profiles-dir /opt/airflow/dbt/profiles
+stg_revenue_research_meli.meli_trends_l3
 ```
 
 ---
@@ -300,7 +296,7 @@ postgresql+psycopg2://postgres:postgres@postgres:5432/snowflake_dev
 Then create a dataset from:
 
 ```text
-mdm_revenue_research_meli.trends
+stg_revenue_research_meli.meli_trends_l3
 ```
 
 ---
@@ -733,3 +729,7 @@ Recommended improvements:
 4. Add Great Expectations or Soda for raw data validation.
 5. Add Superset dashboard exports for CI/CD.
 6. Replace fuzzy matching with embeddings for semantic matching.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for deta
